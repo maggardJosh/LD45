@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98be14693aec3f0478e4a0655967b655, type: 3}
+  m_Name: ButlerSettings
+  m_EditorClassIdentifier: 
+  GameName: LD45
+  UserName: maggardJosh
+  Scenes:
+  - Assets/Scenes/SampleScene.unity
+  BuildAndroid: 0
+  BuildWeb: 1
+  BuildPC: 1

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "EntitySettings", menuName = "Custom/Skeleton Setting Grouping")]
 public class SkeletonSettingGrouping : ScriptableObject
@@ -15,12 +14,18 @@ public class SkeletonSettingGrouping : ScriptableObject
 
     public void ApplyToPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting = null)
     {
+        GetCombinedGroupWithPlayer(pc, lastSetting).ForceApplyToPlayer(pc);
+    }
+
+    public SkeletonSettingGrouping GetCombinedGroupWithPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting = null)
+    {
         lastSetting = lastSetting ?? pc.CurrentSetting;
         bool combinedHead = Head || (lastSetting?.Head ?? false);
         bool combinedTorso = Torso || (lastSetting?.Torso ?? false);
         bool combinedLegs = Legs || (lastSetting?.Legs ?? false);
         bool combinedWings = Wings || (lastSetting?.Wings ?? false);
-        FindGroupingSetting(combinedHead, combinedTorso, combinedLegs, combinedWings).ForceApplyToPlayer(pc);
+        var resultGroup = FindGroupingSetting(combinedHead, combinedTorso, combinedLegs, combinedWings);
+        return resultGroup;
     }
 
     public static SkeletonSettingGrouping FindGroupingSetting(bool head, bool torso, bool legs, bool wings)
@@ -43,7 +48,7 @@ public class SkeletonSettingGrouping : ScriptableObject
         pc.GetComponent<Animator>().runtimeAnimatorController = AnimatorOverrideController;
         pc.GetComponent<BaseEntity>().Settings = EntitySettings;
         pc.SetBoxColliderHeight(CharacterSettings.ColliderHeight);
-        
+
         pc.ApplySetting = this;
         pc.CurrentSetting = this;
     }

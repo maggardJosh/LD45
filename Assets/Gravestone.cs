@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Gravestone : MonoBehaviour
@@ -9,12 +7,16 @@ public class Gravestone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Interactable>().interactAction = (pc) => { SceneManager.LoadScene(nextScene); };
+        GetComponent<Interactable>().interactAction = (pc) =>
+        {
+            SceneManager.LoadScene(nextScene);
+            return true;
+        };
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

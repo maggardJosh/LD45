@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715eff4fde8eeb44eb31c7a4d6b52b43, type: 3}
-  m_Name: SkullSettings
+  m_Name: LegsSettings
   m_EditorClassIdentifier: 
-  Speed: 3
-  JumpStrength: 5
+  Speed: 8
+  JumpStrength: 17
   CanFly: 0
   InstantVelocity: 1
-  ColliderHeight: 0.75
+  ColliderHeight: 0.3

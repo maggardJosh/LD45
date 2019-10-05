@@ -16,7 +16,7 @@ MonoBehaviour:
   Torso: 1
   Legs: 1
   Wings: 0
-  EntitySettings: {fileID: 11400000, guid: 7aa4341eda8a7cd448caef16789dc405, type: 2}
+  EntitySettings: {fileID: 11400000, guid: d65890df57a6c9e43829d37f8f3c5638, type: 2}
   AnimatorOverrideController: {fileID: 22100000, guid: 6994105d98b4e1c43b4a6721e18b94e2,
     type: 2}
-  CharacterSettings: {fileID: 11400000, guid: 49037436147781649bc3e65c487c8f1b, type: 2}
+  CharacterSettings: {fileID: 11400000, guid: 9d78ba60c40dc77479fd1872f8f6c981, type: 2}

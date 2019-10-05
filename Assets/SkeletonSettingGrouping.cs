@@ -40,6 +40,8 @@ public class SkeletonSettingGrouping : ScriptableObject
     {
         pc.GetComponent<Animator>().runtimeAnimatorController = AnimatorOverrideController;
         pc.GetComponent<BaseEntity>().Settings = EntitySettings;
+        pc.SetBoxColliderHeight(CharacterSettings.ColliderHeight);
+        
         pc.ApplySetting = this;
         pc.CurrentSetting = this;
     }

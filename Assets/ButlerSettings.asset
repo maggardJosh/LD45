@@ -20,6 +20,7 @@ MonoBehaviour:
   - Assets/Scenes/Tutorial3.unity
   - Assets/Scenes/Tutorial4.unity
   - Assets/Scenes/Tutorial5.unity
+  - Assets/Scenes/Tutorial6.unity
   - Assets/Scenes/SampleScene.unity
   BuildAndroid: 0
   BuildWeb: 1

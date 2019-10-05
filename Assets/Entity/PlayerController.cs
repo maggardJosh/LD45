@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private void GoGhost()
     {
+        if (CurrentSetting.GetNumPowerups() <= 1)
+            return;
         int ind = 1;
         if (CurrentSetting.Head)
         {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "EntitySettings", menuName = "Custom/Skeleton Setting Grouping")]
 public class SkeletonSettingGrouping : ScriptableObject
@@ -45,5 +46,19 @@ public class SkeletonSettingGrouping : ScriptableObject
         
         pc.ApplySetting = this;
         pc.CurrentSetting = this;
+    }
+
+    internal int GetNumPowerups()
+    {
+        int numPowerups = 0;
+        if (Head)
+            numPowerups++;
+        if (Torso)
+            numPowerups++;
+        if (Legs)
+            numPowerups++;
+        if (Wings)
+            numPowerups++;
+        return numPowerups;
     }
 }

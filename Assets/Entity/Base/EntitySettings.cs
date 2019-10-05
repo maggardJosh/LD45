@@ -8,5 +8,8 @@ public class EntitySettings : ScriptableObject
     public float MaxXVel = 5;
     public float MinYVel = -5;
     public float MaxYVel = 10;
+    [Range(0,1)]
+    public float Friction = 1;
+    public bool ObeysGravity = true;
     public LayerMask CollideMask;
 }

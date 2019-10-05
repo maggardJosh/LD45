@@ -16,3 +16,6 @@ MonoBehaviour:
   collisionOffsetValue: 0.001
   gravity: 1
   minYVel: 5
+  pickupPrefab: {fileID: 3619155982990002188, guid: 555026d8af2d79747ae2ee2bce728220,
+    type: 3}
+  ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}

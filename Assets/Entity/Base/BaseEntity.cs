@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(ForceZAxis))]
 public class BaseEntity : MonoBehaviour
 {
     public bool DebugEntity = false;
@@ -13,7 +14,6 @@ public class BaseEntity : MonoBehaviour
 
     public MoveResult _lastHitResult { get; private set; } = new MoveResult();
     private Vector3 _velocity = Vector3.zero;
-    private EntityMoveTester _moveTester;
     private BoxCollider2D _bCollider;
 
     private Animator _animController;
@@ -21,7 +21,6 @@ public class BaseEntity : MonoBehaviour
     {
         _bCollider = GetComponent<BoxCollider2D>();
         _animController = GetComponent<Animator>();
-        _moveTester = new EntityMoveTester(new EntityDebugLogger(this), _bCollider, Settings.CollideMask);
     }
 
     private void FixedUpdate()
@@ -59,13 +58,14 @@ public class BaseEntity : MonoBehaviour
     {
         TryMove();
         HandleFriction();
-        AddToVelocity(Vector3.down * GameSettings.Gravity * Time.fixedDeltaTime * (1/.02f));
+        if (Settings.ObeysGravity)
+            AddToVelocity(Vector3.down * GameSettings.Gravity * Time.fixedDeltaTime * (1 / .02f));
     }
     protected virtual void TryMove()
     {
         ForceOutOfWalls();
 
-        _lastHitResult = _moveTester.GetMoveResult(transform.position, _velocity * Time.fixedDeltaTime);
+        _lastHitResult = GetMoveTester().GetMoveResult(transform.position, _velocity * Time.fixedDeltaTime);
         transform.position = _lastHitResult.newPos;
 
         if (_lastHitResult.hitDown)
@@ -75,9 +75,14 @@ public class BaseEntity : MonoBehaviour
             _velocity.x *= Settings.BounceValue;
     }
 
+    private EntityMoveTester GetMoveTester()
+    {
+        return new EntityMoveTester(new EntityDebugLogger(this), _bCollider, Settings.CollideMask);
+    }
+
     private void ForceOutOfWalls()
     {
-        MoveResult hitResult = _moveTester.GetHorizontalRaycastFromCenter(transform.position);
+        MoveResult hitResult = GetMoveTester().GetHorizontalRaycastFromCenter(transform.position);
         transform.position = hitResult.newPos;
     }
 
@@ -85,5 +90,10 @@ public class BaseEntity : MonoBehaviour
     {
         if (_lastHitResult.hitDown)
             _velocity.x *= .8f;
+        else
+            _velocity.x *= Settings.Friction;
+
+        if (!Settings.ObeysGravity)
+            _velocity.y *= Settings.Friction;
     }
 }

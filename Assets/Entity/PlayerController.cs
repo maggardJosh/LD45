@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BaseEntity))]
@@ -24,6 +25,14 @@ public class PlayerController : MonoBehaviour
             _inputProvider = new PlayerInputProvider();
     }
 
+    internal void SetPositionToPickup(BodyPickup bodyPickup)
+    {
+        _sRend.flipX = bodyPickup.GetComponent<SpriteRenderer>().flipX;
+        transform.position = bodyPickup.transform.position;
+        _entity.SetYVelocity(0);
+        _entity.SetXVelocity(0);
+    }
+
     private SpriteRenderer _sRend;
     private bool isFacingLeft = false;
 
@@ -45,18 +54,10 @@ public class PlayerController : MonoBehaviour
 
     private void TryUse()
     {
-        foreach (BodyPickup pickup in FindObjectsOfType<BodyPickup>())
+        foreach (Interactable interactableObject in FindObjectsOfType<Interactable>())
         {
-            if (pickup.interactIndicator.activeInHierarchy)
-            {
-                transform.position = pickup.transform.position;
-                _sRend.flipX = pickup.GetComponent<SpriteRenderer>().flipX;
-                pickup.Settings.ApplyToPlayer(this, CurrentSetting);
-                _entity.SetYVelocity(0);
-                _entity.SetXVelocity(0);
-                Destroy(pickup.gameObject);
+            if (interactableObject.Use(this))
                 return;
-            }
         }
 
         if (_entity._lastHitResult.hitDown && CurrentSetting != GameSettings.GhostSetting)

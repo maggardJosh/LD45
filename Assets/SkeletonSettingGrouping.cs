@@ -12,8 +12,9 @@ public class SkeletonSettingGrouping : ScriptableObject
     public AnimatorOverrideController AnimatorOverrideController;
     public CharacterSettings CharacterSettings;
 
-    public void ApplyToPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting)
+    public void ApplyToPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting = null)
     {
+        lastSetting = lastSetting ?? pc.CurrentSetting;
         bool combinedHead = Head || (lastSetting?.Head ?? false);
         bool combinedTorso = Torso || (lastSetting?.Torso ?? false);
         bool combinedLegs = Legs || (lastSetting?.Legs ?? false);

@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: -7308255589282953041
     second: skelton 9
+  - first:
+      213: -995061162257272446
+    second: skelton 10
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -288,6 +291,48 @@ TextureImporter:
       bones: []
       spriteID: 
       internalID: 5964518194564382274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelton 9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 28
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -7308255589282953041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skelton 10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 28
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 
+      internalID: -995061162257272446
       vertices: []
       indices: 
       edges: []

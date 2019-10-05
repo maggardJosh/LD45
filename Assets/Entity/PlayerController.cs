@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool isFacingLeft = false;
 
     float xInput = 0;
-    bool yInput = false;
+    float yInput = 0;
 
     private void Update()
     {
@@ -39,40 +39,52 @@ public class PlayerController : MonoBehaviour
         if (!_animController)
             return;
         _animController.SetFloat("xMove", xInput);
+        _animController.SetBool("grounded", _entity._lastHitResult.hitDown);
 
         if (_sRend)
             _sRend.flipX = isFacingLeft;
+
+        if (Settings.InstantVelocity)
+        {
+            HandleInstantVelocity();
+        }
+        else
+        {
+            _entity.AddToVelocity(new Vector3(xInput * Settings.Speed, Settings.CanFly ? yInput * Settings.JumpStrength : 0, 0));
+        }
+    }
+
+    private void HandleInstantVelocity()
+    {
         _entity.SetXVelocity(xInput * Settings.Speed);
 
-        if (_entity._lastHitResult.hitDown && yInput)
-            _entity.SetYVelocity(Settings.JumpStrength);
+        if (Settings.CanFly)
+        {
+            _entity.SetYVelocity(yInput * Settings.JumpStrength);
+        }
+        else
+        {
+            if (_entity._lastHitResult.hitDown && yInput > 0)
+                _entity.SetYVelocity(Settings.JumpStrength);
+        }
     }
 }
 
 public interface IInputProvider
 {
-    bool GetYInput();
+    float GetYInput();
     float GetXInput();
 }
 
 public class PlayerInputProvider : IInputProvider
 {
-    public bool GetYInput()
+    public float GetYInput()
     {
-        return Input.GetKeyDown(KeyCode.Space);
+        return Input.GetAxisRaw("Vertical");
     }
 
     public float GetXInput()
     {
-        float xInput = 0;
-        if (Input.GetKey(KeyCode.A))
-        {
-            xInput -= 1;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            xInput += 1;
-        }
-        return xInput;
+        return Input.GetAxisRaw("Horizontal");
     }
 }

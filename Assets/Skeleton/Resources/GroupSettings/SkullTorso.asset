@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 684c4063846e62241b306a621be292dc, type: 3}
+  m_Name: SkullTorso
+  m_EditorClassIdentifier: 
+  Head: 1
+  Torso: 1
+  Legs: 0
+  Wings: 0
+  EntitySettings: {fileID: 11400000, guid: 7aa4341eda8a7cd448caef16789dc405, type: 2}
+  AnimatorOverrideController: {fileID: 22100000, guid: 5481ec8bc83a59f48aafbbc62c0e5977,
+    type: 2}
+  CharacterSettings: {fileID: 11400000, guid: e0a2701f88a6fa84b9f424f632cbd186, type: 2}

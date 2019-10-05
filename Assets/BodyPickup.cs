@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[ExecuteInEditMode]
 public class BodyPickup : MonoBehaviour
 {
     public SkeletonSettingGrouping Settings;
@@ -21,8 +20,12 @@ public class BodyPickup : MonoBehaviour
         _animator.SetBool("Legs", Settings.Legs);
         _animator.SetBool("Wings", Settings.Wings);
 
-        var o = FindObjectOfType<PlayerController>();
-        var bc = GetComponent<BoxCollider2D>();
-        interactIndicator.SetActive(bc.bounds.Intersects(o.GetComponent<BoxCollider2D>().bounds));
+        _animator.Update(Time.deltaTime);
+        if (Application.isPlaying)
+        {
+            var o = FindObjectOfType<PlayerController>();
+            var bc = GetComponent<BoxCollider2D>();
+            interactIndicator.SetActive(bc.bounds.Intersects(o.GetComponent<BoxCollider2D>().bounds));
+        }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SkullLegsSettings
   m_EditorClassIdentifier: 
   Speed: 7
-  JumpStrength: 11
+  JumpStrength: 15
   CanFly: 0
   InstantVelocity: 1
   ColliderHeight: 0.8

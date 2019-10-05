@@ -15,6 +15,10 @@ MonoBehaviour:
   GameName: LD45
   UserName: maggardJosh
   Scenes:
+  - Assets/Scenes/Tutorial1.unity
+  - Assets/Scenes/Tutorial2.unity
+  - Assets/Scenes/Tutorial3.unity
+  - Assets/Scenes/Tutorial4.unity
   - Assets/Scenes/SampleScene.unity
   BuildAndroid: 0
   BuildWeb: 1

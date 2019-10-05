@@ -22,10 +22,13 @@ public class BodyPickup : MonoBehaviour
         _animator.Update(Time.deltaTime);
     }
 
-    public void UsePickup(PlayerController pc)
+    public bool UsePickup(PlayerController pc)
     {
+        if (pc.WillColliderHeightCollide(transform.position, Settings.GetCombinedGroupWithPlayer(pc).CharacterSettings.ColliderHeight))
+            return false;
         Settings.ApplyToPlayer(pc);
         pc.SetPositionToPickup(this);
         Destroy(gameObject);
+        return true;
     }
 }

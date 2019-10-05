@@ -4,7 +4,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public bool GhostInteractable = true;
-    public Action<PlayerController> interactAction { private get; set; }
+    public Func<PlayerController, bool> interactAction { private get; set; }
     private GameObject interactIndicator;
     public bool canInteract = false;
     public bool oneTime = false;
@@ -54,8 +54,10 @@ public class Interactable : MonoBehaviour
         if (!canInteract)
             return false;
 
+        if (!interactAction.Invoke(pc))
+            return false;
+
         timesUsed++;
-        interactAction.Invoke(pc);
         return true;
 
     }

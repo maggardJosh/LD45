@@ -75,7 +75,7 @@ public class BaseEntity : MonoBehaviour
             _velocity.x *= Settings.BounceValue;
     }
 
-    private EntityMoveTester GetMoveTester()
+    public EntityMoveTester GetMoveTester()
     {
         return new EntityMoveTester(new EntityDebugLogger(this), _bCollider, Settings.CollideMask);
     }

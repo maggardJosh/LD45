@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BaseEntity))]
@@ -31,6 +30,14 @@ public class PlayerController : MonoBehaviour
         transform.position = bodyPickup.transform.position;
         _entity.SetYVelocity(0);
         _entity.SetXVelocity(0);
+    }
+
+    internal bool WillColliderHeightCollide(Vector3 pos, float colliderHeight)
+    {
+        SetBoxColliderHeight(colliderHeight);
+        var result = _entity.GetMoveTester().GetVerticalRaycastFromCenter(pos);
+        SetBoxColliderHeight(CurrentSetting.CharacterSettings.ColliderHeight);
+        return result.hitUp;
     }
 
     private SpriteRenderer _sRend;

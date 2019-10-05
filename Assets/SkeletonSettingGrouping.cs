@@ -18,17 +18,22 @@ public class SkeletonSettingGrouping : ScriptableObject
         bool combinedTorso = Torso || (lastSetting?.Torso ?? false);
         bool combinedLegs = Legs || (lastSetting?.Legs ?? false);
         bool combinedWings = Wings || (lastSetting?.Wings ?? false);
-        foreach (var setting in Resources.LoadAll<SkeletonSettingGrouping>("GroupSettings"))
+        FindGroupingSetting(combinedHead, combinedTorso, combinedLegs, combinedWings).ForceApplyToPlayer(pc);
+    }
+
+    public static SkeletonSettingGrouping FindGroupingSetting(bool head, bool torso, bool legs, bool wings)
+    {
+        foreach (SkeletonSettingGrouping setting in Resources.LoadAll<SkeletonSettingGrouping>("GroupSettings"))
         {
-            if (setting.Head == combinedHead &&
-                setting.Torso == combinedTorso &&
-                setting.Legs == combinedLegs &&
-                setting.Wings == combinedWings)
+            if (setting.Head == head &&
+                setting.Torso == torso &&
+                setting.Legs == legs &&
+                setting.Wings == wings)
             {
-                setting.ForceApplyToPlayer(pc);
-                return;
+                return setting;
             }
         }
+        return null;
     }
 
     public void ForceApplyToPlayer(PlayerController pc)

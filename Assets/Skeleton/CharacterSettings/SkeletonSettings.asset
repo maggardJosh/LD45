@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715eff4fde8eeb44eb31c7a4d6b52b43, type: 3}
   m_Name: SkeletonSettings
   m_EditorClassIdentifier: 
-  Speed: 5
-  JumpStrength: 15
+  Speed: 10
+  JumpStrength: 18
   CanFly: 0
   InstantVelocity: 1

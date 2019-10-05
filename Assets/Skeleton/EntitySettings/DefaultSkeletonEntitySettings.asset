@@ -9,10 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 715eff4fde8eeb44eb31c7a4d6b52b43, type: 3}
-  m_Name: GhostCharacterSettings
+  m_Script: {fileID: 11500000, guid: f38974e8c1a3bc24dbe5d26f7159caef, type: 3}
+  m_Name: DefaultSkeletonEntitySettings
   m_EditorClassIdentifier: 
-  Speed: 20
-  JumpStrength: 10
-  CanFly: 1
-  InstantVelocity: 0
+  BounceValue: -0.25
+  MaxXVel: 20
+  MinYVel: -20
+  MaxYVel: 20
+  Friction: 0.817
+  ObeysGravity: 1
+  CollideMask:
+    serializedVersion: 2
+    m_Bits: 256

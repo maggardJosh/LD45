@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GhostEntitySettings
   m_EditorClassIdentifier: 
   BounceValue: -0.5
-  MaxXVel: 3
-  MinYVel: -3
-  MaxYVel: 3
+  MaxXVel: 6
+  MinYVel: -6
+  MaxYVel: 6
   Friction: 0.9
   ObeysGravity: 0
   CollideMask:

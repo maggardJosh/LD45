@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BaseEntity))]
 public class PlayerController : MonoBehaviour
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         CheckSetting();
         xInput = _inputProvider.GetXInput();
         yInput = _inputProvider.GetYInput();
@@ -58,13 +61,35 @@ public class PlayerController : MonoBehaviour
 
     private void GoGhost()
     {
-        var go = Instantiate(GameSettings.PickupPrefab);
-        go.GetComponent<BodyPickup>().Settings = CurrentSetting;
-        go.transform.position = transform.position;
-        go.GetComponent<SpriteRenderer>().flipX = _sRend.flipX;
+        int ind = 0;
+        if (CurrentSetting.Head)
+            SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(true, false, false, false), ind++);
+        if (CurrentSetting.Torso)
+            SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, true, false, false), ind++);
+        if (CurrentSetting.Legs)
+            SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, false, true, false), ind++);
+        if (CurrentSetting.Wings)
+            SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, false, false, true), ind++);
+
         GameSettings.GhostSetting.ForceApplyToPlayer(this);
         _entity.SetYVelocity(5);
     }
+
+    public float xRandSpawnVel = 1;
+    public float minYRandSpawnVel = 2;
+    public float maxYRandSpawnVel = 5;
+    private void SpawnPickup(SkeletonSettingGrouping setting, int ind)
+    {
+        var go = Instantiate(GameSettings.PickupPrefab);
+        go.GetComponent<BodyPickup>().Settings = setting;
+        go.transform.position = transform.position;
+        go.GetComponent<SpriteRenderer>().flipX = _sRend.flipX;
+        var be = go.GetComponent<BaseEntity>();
+        float xVel = (ind % 2 == 0 ? 1 : -1) * (Mathf.CeilToInt(ind / 2f)) * xRandSpawnVel;
+        be.SetXVelocity(xVel);
+        be.SetYVelocity(Random.Range(minYRandSpawnVel, maxYRandSpawnVel));
+    }
+
     private void CheckSetting()
     {
         if (ApplySetting != CurrentSetting)

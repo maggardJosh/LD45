@@ -8,7 +8,7 @@ public class DoorButton : MonoBehaviour
     {
         GetComponent<Interactable>().interactAction = (pc) =>
         {
-            doorToOpen.GetComponent<Animator>().SetTrigger("open");
+            doorToOpen.GetComponentInChildren<Animator>().SetTrigger("open");
         };
     }
 }

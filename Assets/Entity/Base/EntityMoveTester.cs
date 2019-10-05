@@ -172,7 +172,7 @@ public class EntityMoveTester
             //i==0 top side corner
             //i==1 bottom side corner
             float ySectionValue = Mathf.Min(i * GameSettings.TileSize, _collider.bounds.size.y - GameSettings.CollisionOffsetValue * 2f);
-            Vector2 orig = _collider.bounds.center + Vector3.up * (_collider.bounds.size.y / 2 - GameSettings.CollisionOffsetValue) + (Vector3.down * ySectionValue);
+            Vector2 orig = _result.newPos + _collider.offset.ToVector3() + Vector3.up * (_collider.bounds.size.y / 2 - GameSettings.CollisionOffsetValue) + (Vector3.down * ySectionValue);
 
             resultingPosition = GetMoveCollisionPositionHorizontal(orig, moveDirection, amount, resultingPosition);
 

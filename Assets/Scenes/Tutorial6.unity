@@ -8974,7 +8974,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6208583096366430523, guid: 3336a8b3a311dac40a96d2c9f1e63996,
+      objectReference: {fileID: 7553895337550039221, guid: 3336a8b3a311dac40a96d2c9f1e63996,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b5287e2128e774f9ed4d1c6bd2ff2a, type: 3}
@@ -9188,6 +9188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5381961979507150562, guid: d7a0eb9a520e35f4fa0b850a23c61a75,
+        type: 3}
+      propertyPath: nextScene
+      value: Tutorial7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7a0eb9a520e35f4fa0b850a23c61a75, type: 3}

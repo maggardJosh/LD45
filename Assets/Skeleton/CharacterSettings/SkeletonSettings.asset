@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   JumpStrength: 15
+  CanFly: 0
+  InstantVelocity: 1

@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(ForceZAxis))]
 public class BaseEntity : MonoBehaviour
 {
     public bool DebugEntity = false;

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class BodyPickup : MonoBehaviour
 {
-    public bool Head = true;
-    public bool Torso = false;
-    public bool Legs = false;
-    public bool Wings = false;
+    public SkeletonSettingGrouping Settings;
+    public GameObject interactIndicator;
 
     private Animator _animator;
     public void Awake()
     {
         _animator = GetComponent<Animator>();
+        interactIndicator.SetActive(false);
     }
 
     public void Update()
     {
-        _animator.SetBool("Head", Head);
-        _animator.SetBool("Torso", Head);
-        _animator.SetBool("Legs", Head);
-        _animator.SetBool("Wings", Head);
+        _animator.SetBool("Head", Settings.Head);
+        _animator.SetBool("Torso", Settings.Torso);
+        _animator.SetBool("Legs", Settings.Legs);
+        _animator.SetBool("Wings", Settings.Wings);
+
+        var o = FindObjectOfType<PlayerController>();
+        var bc = GetComponent<BoxCollider2D>();
+        interactIndicator.SetActive(bc.bounds.Intersects(o.GetComponent<BoxCollider2D>().bounds));
     }
 }

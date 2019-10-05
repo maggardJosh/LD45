@@ -82,7 +82,10 @@ public class BaseEntity : MonoBehaviour
 
     private void ForceOutOfWalls()
     {
-        MoveResult hitResult = GetMoveTester().GetHorizontalRaycastFromCenter(transform.position);
+        MoveResult hitResult = GetMoveTester().GetVerticalRaycastFromCenter(transform.position);
+        transform.position = hitResult.newPos;
+
+        hitResult = GetMoveTester().GetHorizontalRaycastFromCenter(transform.position);
         transform.position = hitResult.newPos;
     }
 

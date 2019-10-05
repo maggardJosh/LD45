@@ -50,7 +50,7 @@ public class EntityMoveTester
             throw new ArgumentException("TryRaycastHorizontal: Direction vector not normalized");
 
         float numSections = _collider.bounds.size.y / GameSettings.TileSize + 1;
-        Vector3 center = _collider.bounds.center;
+        Vector3 center = _result.newPos + _collider.offset.ToVector3();
         Vector2 raycastDir = direction * _collider.bounds.size.x / 2;
 
         _result.newPos = GetResultPosHorizontal(_result.newPos, numSections, center, raycastDir);
@@ -75,6 +75,70 @@ public class EntityMoveTester
         }
 
         return resultingPosition;
+    }
+
+    internal MoveResult GetVerticalRaycastFromCenter(Vector3 pos)
+    {
+        _result = new MoveResult
+        {
+            newPos = pos
+        };
+
+        TryRaycastVertical(Vector3.down);
+        TryRaycastVertical(Vector3.up);
+
+        return _result;
+    }
+
+    private void TryRaycastVertical(Vector3 direction)
+    {
+        if (direction.sqrMagnitude != 1)
+            throw new ArgumentException("TryRaycastVertical: Direction vector not normalized");
+
+        float numSections = _collider.bounds.size.x / GameSettings.TileSize + 1;
+        Vector3 center = _result.newPos + _collider.offset.ToVector3();
+        Vector2 raycastDir = direction * _collider.bounds.size.y / 2;
+
+        _result.newPos = GetResultPosVertical(_result.newPos, numSections, center, raycastDir);
+    }
+
+    private Vector3 GetResultPosVertical(Vector3 resultingPosition, float numSections, Vector3 center, Vector2 raycastDir)
+    {
+        for (int i = 0; i <= numSections; i++)
+        {
+            //i==0 top side corner
+            //i==1 bottom side corner
+            float xSectionValue = Mathf.Min(_collider.bounds.size.x - GameSettings.CollisionOffsetValue * 2f, i * GameSettings.TileSize);
+            Vector2 raycastOrig = center + Vector3.left * (_collider.bounds.size.x / 2 - GameSettings.CollisionOffsetValue) + (Vector3.right * xSectionValue);
+
+            Vector3 collisionPosition = GetCollisionPositionVertical(raycastOrig, raycastDir);
+
+            float distanceToCollisionPoint = (collisionPosition - _result.newPos).sqrMagnitude;
+            float distanceToCurrentResultPosition = (resultingPosition - _result.newPos).sqrMagnitude;
+
+            if (distanceToCollisionPoint > distanceToCurrentResultPosition)
+                resultingPosition = collisionPosition;
+        }
+
+        return resultingPosition;
+    }
+
+    private Vector3 GetCollisionPositionVertical(Vector2 raycastOrig, Vector2 raycastDir)
+    {
+        RaycastHit2D hitResult = Physics2D.Raycast(raycastOrig, raycastDir, raycastDir.magnitude, _collisionMask);
+        var hitSomething = hitResult.collider != null;
+        _logger.DebugLine(raycastOrig, raycastOrig + raycastDir, hitSomething ? Color.red : Color.green);
+
+        if (!hitSomething)
+        {
+            return _result.newPos;
+        }
+
+        if (raycastDir.y > 0)
+            _result.hitUp = true;
+        else
+            _result.hitDown = true;
+        return new Vector3(_result.newPos.x, hitResult.point.y + (-_collider.offset.y)) - new Vector3(raycastDir.x, raycastDir.y);
     }
 
     private Vector3 GetCollisionPositionHorizontal(Vector2 raycastOrig, Vector2 raycastDir)

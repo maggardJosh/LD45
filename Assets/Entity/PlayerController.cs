@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BaseEntity))]
@@ -11,8 +12,11 @@ public class PlayerController : MonoBehaviour
 
     private Animator _animController;
     public IInputProvider _inputProvider;
+    private BoxCollider2D _boxCollider;
+
     private void Start()
     {
+        _boxCollider = GetComponent<BoxCollider2D>();
         ApplySetting?.ApplyToPlayer(this, ApplySetting);
         _entity = GetComponent<BaseEntity>();
         _animController = GetComponent<Animator>();
@@ -21,9 +25,18 @@ public class PlayerController : MonoBehaviour
             _inputProvider = new PlayerInputProvider();
     }
 
+    internal void SetPositionToPickup(BodyPickup bodyPickup)
+    {
+        _sRend.flipX = bodyPickup.GetComponent<SpriteRenderer>().flipX;
+        transform.position = bodyPickup.transform.position;
+        _entity.SetYVelocity(0);
+        _entity.SetXVelocity(0);
+    }
+
     private SpriteRenderer _sRend;
     private bool isFacingLeft = false;
 
+    private float lastYInput = 0;
     float xInput = 0;
     float yInput = 0;
 
@@ -41,22 +54,22 @@ public class PlayerController : MonoBehaviour
 
     private void TryUse()
     {
-        foreach (BodyPickup pickup in FindObjectsOfType<BodyPickup>())
+        foreach (Interactable interactableObject in FindObjectsOfType<Interactable>())
         {
-            if (pickup.interactIndicator.activeInHierarchy)
-            {
-                transform.position = pickup.transform.position;
-                _sRend.flipX = pickup.GetComponent<SpriteRenderer>().flipX;
-                pickup.Settings.ApplyToPlayer(this, CurrentSetting);
-                _entity.SetYVelocity(0);
-                _entity.SetXVelocity(0);
-                Destroy(pickup.gameObject);
+            if (interactableObject.Use(this))
                 return;
-            }
         }
 
         if (_entity._lastHitResult.hitDown && CurrentSetting != GameSettings.GhostSetting)
             GoGhost();
+    }
+
+    internal void SetBoxColliderHeight(float colliderHeight)
+    {
+        var bcSize = _boxCollider.size;
+        bcSize.y = colliderHeight;
+        _boxCollider.size = bcSize;
+        _boxCollider.offset = new Vector2(0, colliderHeight / 2f);
     }
 
     private void GoGhost()
@@ -105,6 +118,13 @@ public class PlayerController : MonoBehaviour
         else if (xInput > 0)
             isFacingLeft = false;
 
+        float yValue = 0;
+        if(lastYInput != yInput)
+        {
+            yValue = yInput;
+            lastYInput = yInput;
+        }
+
         if (!_animController)
             return;
         _animController.SetFloat("xMove", xInput);
@@ -115,25 +135,25 @@ public class PlayerController : MonoBehaviour
 
         if (CurrentSetting.CharacterSettings.InstantVelocity)
         {
-            HandleInstantVelocity();
+            HandleInstantVelocity(xInput, yValue);
         }
         else
         {
-            _entity.AddToVelocity(new Vector3(xInput * CurrentSetting.CharacterSettings.Speed, CurrentSetting.CharacterSettings.CanFly ? yInput * CurrentSetting.CharacterSettings.JumpStrength : 0, 0));
+            _entity.AddToVelocity(new Vector3(xInput * CurrentSetting.CharacterSettings.Speed, CurrentSetting.CharacterSettings.CanFly ? yValue * CurrentSetting.CharacterSettings.JumpStrength : 0, 0));
         }
     }
 
-    private void HandleInstantVelocity()
+    private void HandleInstantVelocity(float xValue, float yValue)
     {
-        _entity.SetXVelocity(xInput * CurrentSetting.CharacterSettings.Speed);
+        _entity.SetXVelocity(xValue * CurrentSetting.CharacterSettings.Speed);
 
         if (CurrentSetting.CharacterSettings.CanFly)
         {
-            _entity.SetYVelocity(yInput * CurrentSetting.CharacterSettings.JumpStrength);
+            _entity.SetYVelocity(yValue * CurrentSetting.CharacterSettings.JumpStrength);
         }
         else
         {
-            if (_entity._lastHitResult.hitDown && yInput > 0)
+            if (_entity._lastHitResult.hitDown && yValue > 0)
                 _entity.SetYVelocity(CurrentSetting.CharacterSettings.JumpStrength);
         }
     }

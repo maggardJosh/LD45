@@ -19,4 +19,4 @@ MonoBehaviour:
   EntitySettings: {fileID: 11400000, guid: d65890df57a6c9e43829d37f8f3c5638, type: 2}
   AnimatorOverrideController: {fileID: 22100000, guid: d50bd5818cc149f4ea8464270acf9d8e,
     type: 2}
-  CharacterSettings: {fileID: 11400000, guid: 49037436147781649bc3e65c487c8f1b, type: 2}
+  CharacterSettings: {fileID: 11400000, guid: b99806de97bfa334b8fc5966afe9fae7, type: 2}

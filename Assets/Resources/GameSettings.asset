@@ -18,4 +18,6 @@ MonoBehaviour:
   minYVel: 5
   pickupPrefab: {fileID: 3619155982990002188, guid: 555026d8af2d79747ae2ee2bce728220,
     type: 3}
+  interactIndicatorPrefab: {fileID: 8593989081448853571, guid: 6694c0f6d06f8fd409bbc099e1990197,
+    type: 3}
   ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}

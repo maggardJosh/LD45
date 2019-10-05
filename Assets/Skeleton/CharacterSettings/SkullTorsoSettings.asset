@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715eff4fde8eeb44eb31c7a4d6b52b43, type: 3}
   m_Name: SkullTorsoSettings
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 1.7
   JumpStrength: 8
   CanFly: 0
   InstantVelocity: 1

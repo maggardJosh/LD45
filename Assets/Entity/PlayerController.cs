@@ -61,7 +61,11 @@ public class PlayerController : MonoBehaviour
         }
 
         if (_entity._lastHitResult.hitDown && CurrentSetting != GameSettings.GhostSetting)
+        {
             GoGhost();
+            if(CurrentSetting == GameSettings.GhostSetting)
+                _entity.SetYVelocity(5);
+        }
     }
 
     internal void SetBoxColliderHeight(float colliderHeight)
@@ -74,18 +78,34 @@ public class PlayerController : MonoBehaviour
 
     private void GoGhost()
     {
-        int ind = 0;
+        int ind = 1;
         if (CurrentSetting.Head)
+        {
             SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(true, false, false, false), ind++);
+            SkeletonSettingGrouping.FindGroupingSetting(false, CurrentSetting.Torso, CurrentSetting.Legs, CurrentSetting.Wings).ForceApplyToPlayer(this);
+            return;
+        }
         if (CurrentSetting.Torso)
+        {
             SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, true, false, false), ind++);
+            SkeletonSettingGrouping.FindGroupingSetting(CurrentSetting.Head, false, CurrentSetting.Legs, CurrentSetting.Wings).ForceApplyToPlayer(this);
+            return;
+        }
         if (CurrentSetting.Legs)
+        {
             SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, false, true, false), ind++);
+            SkeletonSettingGrouping.FindGroupingSetting(CurrentSetting.Head, CurrentSetting.Torso, false, CurrentSetting.Wings).ForceApplyToPlayer(this);
+            return;
+        }
         if (CurrentSetting.Wings)
+        {
             SpawnPickup(SkeletonSettingGrouping.FindGroupingSetting(false, false, false, true), ind++);
+            SkeletonSettingGrouping.FindGroupingSetting(CurrentSetting.Head, CurrentSetting.Torso, CurrentSetting.Legs, false).ForceApplyToPlayer(this);
+            return;
+        }
 
+        //Just in case
         GameSettings.GhostSetting.ForceApplyToPlayer(this);
-        _entity.SetYVelocity(5);
     }
 
     public float xRandSpawnVel = 1;
@@ -98,7 +118,8 @@ public class PlayerController : MonoBehaviour
         go.transform.position = transform.position;
         go.GetComponent<SpriteRenderer>().flipX = _sRend.flipX;
         var be = go.GetComponent<BaseEntity>();
-        float xVel = (ind % 2 == 0 ? 1 : -1) * (Mathf.CeilToInt(ind / 2f)) * xRandSpawnVel;
+        float xVel = (_sRend.flipX ? 1 : -1 ) * (ind % 2 == 0 ? 1 : -1) * (Mathf.CeilToInt(ind / 2f)) * xRandSpawnVel;  //Leaving in "throw body away" code just in case I need it later...
+        xVel *= Random.Range(.8f, 1.2f);
         be.SetXVelocity(xVel);
         be.SetYVelocity(Random.Range(minYRandSpawnVel, maxYRandSpawnVel));
     }
@@ -119,7 +140,7 @@ public class PlayerController : MonoBehaviour
             isFacingLeft = false;
 
         float yValue = 0;
-        if(lastYInput != yInput)
+        if(lastYInput != yInput || CurrentSetting.CharacterSettings.CanFly)
         {
             yValue = yInput;
             lastYInput = yInput;

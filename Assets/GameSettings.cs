@@ -10,6 +10,7 @@ public class GameSettings : ScriptableObject
     public GameObject pickupPrefab;
     public GameObject interactIndicatorPrefab;
     public SkeletonSettingGrouping ghostSetting;
+    public Color bgColor;
 
     private static GameSettings _instance;
     private static GameSettings Instance
@@ -28,5 +29,6 @@ public class GameSettings : ScriptableObject
     public static GameObject PickupPrefab { get => Instance.pickupPrefab; }
     public static GameObject InteractIndicatorPrefab { get => Instance.interactIndicatorPrefab; }
     public static SkeletonSettingGrouping GhostSetting { get => Instance.ghostSetting; }
+    public static Color BGColor { get => Instance.bgColor; }
 
 }

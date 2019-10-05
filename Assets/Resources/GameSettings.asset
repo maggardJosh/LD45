@@ -21,3 +21,4 @@ MonoBehaviour:
   interactIndicatorPrefab: {fileID: 8593989081448853571, guid: 6694c0f6d06f8fd409bbc099e1990197,
     type: 3}
   ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}
+  bgColor: {r: 0.20392157, g: 0.31764707, b: 0.36862746, a: 0}

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,12 +16,12 @@ public class LevelSelectScreen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void UpdateLevels()
     {
-        foreach(var scene in GetScenes())
+        foreach (var scene in GetScenes())
         {
             var go = Instantiate(LevelSelectButtonPrefab, LevelSelectContainer);
             var lsb = go.GetComponent<LevelSelectButton>();

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEditor;
+using UnityEngine.SceneManagement;
+
 namespace Editor.ButlerScripts
 {
     public class BuildScript
@@ -111,7 +113,7 @@ namespace Editor.ButlerScripts
         {
             var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = ButlerSettings.Instance.Scenes,
+                scenes = GetScenes(),
                 locationPathName = "Builds/Web",
                 target = BuildTarget.WebGL,
                 options = BuildOptions.None
@@ -121,6 +123,16 @@ namespace Editor.ButlerScripts
                 return false;
             WebPush();
             return true;
+        }
+
+        private static string[] GetScenes()
+        {
+            List<string> result = new List<string>();
+            for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+            {
+                result.Add(SceneUtility.GetScenePathByBuildIndex(i));
+            }
+            return result.ToArray();
         }
 
         [MenuItem("Build/Itch.io Push Web", false, 11)]
@@ -134,7 +146,7 @@ namespace Editor.ButlerScripts
         {
             var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = ButlerSettings.Instance.Scenes,
+                scenes = GetScenes(),
                 locationPathName = $"Builds/PC/{ButlerSettings.Instance.GameName}.exe",
                 target = BuildTarget.StandaloneWindows,
                 options = BuildOptions.None
@@ -156,7 +168,7 @@ namespace Editor.ButlerScripts
         {
             var result = BuildPipeline.BuildPlayer(new BuildPlayerOptions
             {
-                scenes = ButlerSettings.Instance.Scenes,
+                scenes = GetScenes(),
                 locationPathName = $"Builds/Android/{ButlerSettings.Instance.GameName}.apk",
                 target = BuildTarget.Android,
                 options = BuildOptions.None

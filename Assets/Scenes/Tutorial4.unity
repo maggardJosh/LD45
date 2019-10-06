@@ -841,14 +841,14 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 10
-    m_MaxSize: 40
+    m_MaxSize: 17
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press 'E' to drop parts
+  m_Text: Press Q or Z to drop parts
 --- !u!222 &734535385
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8442,7 +8442,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6208583096366430523, guid: 3336a8b3a311dac40a96d2c9f1e63996,
+      objectReference: {fileID: 7553895337550039221, guid: 3336a8b3a311dac40a96d2c9f1e63996,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b5287e2128e774f9ed4d1c6bd2ff2a, type: 3}

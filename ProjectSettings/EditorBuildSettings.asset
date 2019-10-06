@@ -21,6 +21,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial5.unity
     guid: d66801caf1eef6e43a005f07b38e18a9
   - enabled: 1
+    path: Assets/Scenes/Tutorial6.unity
+    guid: d46feece82612844bb60d97166249306
+  - enabled: 1
+    path: Assets/Scenes/Tutorial7.unity
+    guid: 943528a1add9e1847addd7a50fff01fe
+  - enabled: 1
+    path: Assets/Scenes/Tutorial8.unity
+    guid: eafbd9b82c4c65e4b884573a7ef52204
+  - enabled: 1
+    path: Assets/Scenes/Puzzle1.unity
+    guid: 7aee7e0807eb1f04d89a806d297d399f
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

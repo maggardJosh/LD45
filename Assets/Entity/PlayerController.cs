@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
 
         if (_inputProvider.GetUseInput())
             TryUse();
+
+        if (_inputProvider.GetDiscardInput())
+            TryDiscard();
     }
 
     private void TryUse()
@@ -66,12 +69,13 @@ public class PlayerController : MonoBehaviour
             if (interactableObject.Use(this))
                 return;
         }
+    }
 
+    private void TryDiscard()
+    {
         if (_entity._lastHitResult.hitDown && CurrentSetting != GameSettings.GhostSetting)
         {
-            GoGhost();
-            if(CurrentSetting == GameSettings.GhostSetting)
-                _entity.SetYVelocity(5);
+            DiscardPowerup();
         }
     }
 
@@ -83,7 +87,7 @@ public class PlayerController : MonoBehaviour
         _boxCollider.offset = new Vector2(0, colliderHeight / 2f);
     }
 
-    private void GoGhost()
+    private void DiscardPowerup()
     {
         if (CurrentSetting.GetNumPowerups() <= 1)
             return;
@@ -194,6 +198,7 @@ public interface IInputProvider
     float GetYInput();
     float GetXInput();
     bool GetUseInput();
+    bool GetDiscardInput();
 }
 
 public class PlayerInputProvider : IInputProvider
@@ -211,5 +216,10 @@ public class PlayerInputProvider : IInputProvider
     public bool GetUseInput()
     {
         return Input.GetButtonDown("Use");
+    }
+
+    public bool GetDiscardInput()
+    {
+        return Input.GetButtonDown("Discard");
     }
 }

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            LoadingScreen.Show(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
         CheckSetting();
         xInput = _inputProvider.GetXInput();
         yInput = _inputProvider.GetYInput();
@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         go.transform.position = transform.position;
         go.GetComponent<SpriteRenderer>().flipX = _sRend.flipX;
         var be = go.GetComponent<BaseEntity>();
-        float xVel = (_sRend.flipX ? 1 : -1 ) * (ind % 2 == 0 ? 1 : -1) * (Mathf.CeilToInt(ind / 2f)) * xRandSpawnVel;  //Leaving in "throw body away" code just in case I need it later...
+        float xVel = (_sRend.flipX ? 1 : -1) * (ind % 2 == 0 ? 1 : -1) * (Mathf.CeilToInt(ind / 2f)) * xRandSpawnVel;  //Leaving in "throw body away" code just in case I need it later...
         xVel *= Random.Range(.8f, 1.2f);
         be.SetXVelocity(xVel);
         be.SetYVelocity(Random.Range(minYRandSpawnVel, maxYRandSpawnVel));
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
             isFacingLeft = false;
 
         float yValue = 0;
-        if(lastYInput != yInput || CurrentSetting.CharacterSettings.CanFly)
+        if (lastYInput != yInput || CurrentSetting.CharacterSettings.CanFly)
         {
             yValue = yInput;
             lastYInput = yInput;

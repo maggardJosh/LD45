@@ -22,3 +22,52 @@ MonoBehaviour:
     type: 3}
   ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}
   bgColor: {r: 0.20392157, g: 0.31764707, b: 0.36862746, a: 0}
+  loadSceneFadeTime: 0.5
+  loadInCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.0036036037
+      value: -0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.0018018
+      value: 0.9970238
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  loadOutCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.28115535
+      outSlope: -0.28115535
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.084684685
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.122354485
+      outSlope: -0.122354485
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.09729731
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

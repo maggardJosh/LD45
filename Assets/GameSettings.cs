@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Custom/Game Setting")]
 public class GameSettings : ScriptableObject
@@ -12,6 +11,10 @@ public class GameSettings : ScriptableObject
     public GameObject interactIndicatorPrefab;
     public SkeletonSettingGrouping ghostSetting;
     public Color bgColor;
+
+    public float loadSceneFadeTime = 1f;
+    public AnimationCurve loadInCurve;
+    public AnimationCurve loadOutCurve;
 
     private static GameSettings _instance;
     private static GameSettings Instance
@@ -31,5 +34,9 @@ public class GameSettings : ScriptableObject
     public static GameObject InteractIndicatorPrefab { get => Instance.interactIndicatorPrefab; }
     public static SkeletonSettingGrouping GhostSetting { get => Instance.ghostSetting; }
     public static Color BGColor { get => Instance.bgColor; }
+
+    public static float LoadSceneFadeTime { get => Instance.loadSceneFadeTime; }
+    public static AnimationCurve LoadInCurve { get => Instance.loadInCurve; }
+    public static AnimationCurve LoadOutCurve { get => Instance.loadOutCurve; }
 
 }

@@ -14,11 +14,12 @@ public class Gravestone : MonoBehaviour
                 {
                     string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
                     string sceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
-                    SceneManager.LoadScene(sceneName);
+                    LoadingScreen.Show(() => SceneManager.LoadScene(sceneName));
                     return true;
                 }
 
             }
+            FailureIndicator.ShowFailureMessage("Out of levels... sorry!", transform.position);
             return false;
         };
     }

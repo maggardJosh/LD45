@@ -12,6 +12,7 @@ public class BaseEntity : MonoBehaviour
         return $"pos: {transform.position}, hit: {_lastHitResult}, v: {_velocity}";
     }
 
+    public MoveResult _lastLastHitResult { get; private set; } = new MoveResult();
     public MoveResult _lastHitResult { get; private set; } = new MoveResult();
     private Vector3 _velocity = Vector3.zero;
     private BoxCollider2D _bCollider;
@@ -65,6 +66,7 @@ public class BaseEntity : MonoBehaviour
     {
         ForceOutOfWalls();
         bool hitDownLastFrame = _lastHitResult.hitDown;
+        _lastLastHitResult = _lastHitResult;
         _lastHitResult = GetMoveTester().GetMoveResult(transform.position, _velocity * Time.fixedDeltaTime);
         transform.position = _lastHitResult.newPos;
 

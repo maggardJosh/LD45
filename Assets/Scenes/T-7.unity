@@ -6419,8 +6419,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -57, y: 270}
-  m_SizeDelta: {x: 570.5, y: 50}
+  m_AnchoredPosition: {x: -57, y: -42}
+  m_SizeDelta: {x: 570.5, y: 16.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657165175
 MonoBehaviour:
@@ -6468,7 +6468,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Don't forget you can press \nQ or Z to temporarily drop parts."
+  m_Text: Watch your head
 --- !u!222 &1657165177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11225,7 +11225,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -3211025747121322663, guid: 3336a8b3a311dac40a96d2c9f1e63996,
+      objectReference: {fileID: 7553895337550039221, guid: 3336a8b3a311dac40a96d2c9f1e63996,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b5287e2128e774f9ed4d1c6bd2ff2a, type: 3}
@@ -11449,7 +11449,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 569239038125371685, guid: 4aeb6dbd5fac21446ae56a69e443ce96,
+      objectReference: {fileID: 250988919061803407, guid: 4aeb6dbd5fac21446ae56a69e443ce96,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ca800a0f35a0342952861a257f3ed4, type: 3}

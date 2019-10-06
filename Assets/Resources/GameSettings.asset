@@ -82,3 +82,4 @@ MonoBehaviour:
   doorOpenSFX: {fileID: 8300000, guid: d3270b18318eaef4abca019c7ae1fd17, type: 3}
   hitGroundSFX: {fileID: 8300000, guid: 20e97d7ff137f50459f53b939e829820, type: 3}
   menuBlipSFX: {fileID: 8300000, guid: f9566d0218fa3ce4dbb4f9acd9c13eea, type: 3}
+  resetSFX: {fileID: 8300000, guid: 87194e0d8d10f984db925c5177e9f071, type: 3}

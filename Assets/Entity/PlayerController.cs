@@ -198,7 +198,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            if (_entity._lastHitResult.hitDown && yValue > 0)
+            if (_entity._lastLastHitResult.hitDown && yValue > 0)
             {
                 AudioManager.PlayOneShot(GameSettings.JumpSFX);
                 _entity.SetYVelocity(CurrentSetting.CharacterSettings.JumpStrength);

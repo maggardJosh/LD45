@@ -21,7 +21,7 @@ MonoBehaviour:
   interactIndicatorPrefab: {fileID: 8593989081448853571, guid: 6694c0f6d06f8fd409bbc099e1990197,
     type: 3}
   ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}
-  bgColor: {r: 0.20392157, g: 0.31764707, b: 0.36862746, a: 0}
+  bgColor: {r: 0.24265754, g: 0.34217933, b: 0.38679248, a: 0}
   essentialsPrefab: {fileID: 1812611410441998289, guid: bc966186123ed734186f0b57f45f9546,
     type: 3}
   loadSceneFadeTime: 0.5

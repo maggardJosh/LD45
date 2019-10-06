@@ -1,32 +1,42 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelSelectScreen : MonoBehaviour
 {
     public Transform LevelSelectContainer;
+    public Transform TutorialSelectContainer;
+
     public GameObject LevelSelectButtonPrefab;
 
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
         UpdateLevels();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateLevels()
     {
+        foreach (Transform t in LevelSelectContainer)
+            Destroy(t.gameObject);//Just in case
+        foreach (Transform t in TutorialSelectContainer)
+            Destroy(t.gameObject);//Just in case
+
+        var scenes = GetScenes();
+        foreach (var scene in scenes.Where(s => s.StartsWith("T")))
+            CreateButton(TutorialSelectContainer, scene);
+        foreach (var scene in scenes.Where(s => !s.StartsWith("T")))
+            CreateButton(LevelSelectContainer, scene);
 
     }
 
-    public void UpdateLevels()
+    private void CreateButton(Transform parent, string scene)
     {
-        foreach (var scene in GetScenes())
-        {
-            var go = Instantiate(LevelSelectButtonPrefab, LevelSelectContainer);
-            var lsb = go.GetComponent<LevelSelectButton>();
-            lsb.InitButton(scene, this);
-        }
+        var go = Instantiate(LevelSelectButtonPrefab, parent);
+        var lsb = go.GetComponent<LevelSelectButton>();
+        lsb.WireUpSceneLoaded();
+        lsb.InitButton(scene, this);
     }
 
     private static string[] GetScenes()

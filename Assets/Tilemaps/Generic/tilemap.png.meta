@@ -119,6 +119,15 @@ TextureImporter:
   - first:
       213: 6902126574865889456
     second: plate_down
+  - first:
+      213: 5333384962269985411
+    second: deco1
+  - first:
+      213: 8886257131617742755
+    second: deco2
+  - first:
+      213: -9093867161931772565
+    second: deco3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -1053,6 +1062,69 @@ TextureImporter:
       bones: []
       spriteID: 046447616ffbc874eb8dc5e9976c0677
       internalID: 6902126574865889456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deco1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 311
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca1a15d1e4e0054f87fb8fcacf607f1
+      internalID: 5333384962269985411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deco2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 311
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a91042c6edf6a345870aae4e5659e3a
+      internalID: 8886257131617742755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: deco3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 311
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0e87836efc70a4b9050951727e26dd
+      internalID: -9093867161931772565
       vertices: []
       indices: 
       edges: []

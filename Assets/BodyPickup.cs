@@ -29,9 +29,25 @@ public class BodyPickup : MonoBehaviour
             FailureIndicator.ShowFailureMessage("Not Enough Room", transform.position);
             return false;
         }
+
+        if(Settings.GetCombinedGroupWithPlayer(pc) == pc.CurrentSetting)
+        {
+            FailureIndicator.ShowFailureMessage("Already Have That Body Part", transform.position);
+            return false;
+        }
+
+        var overlap = Settings.GetOverlapGroupWithPlayer(pc);
         Settings.ApplyToPlayer(pc);
         pc.SetPositionToPickup(this);
-        Destroy(gameObject);
+
+        if (overlap.Head || overlap.Torso || overlap.Legs)
+        {
+            Settings = overlap;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         AudioManager.PlayOneShot(GameSettings.PickupPartSFX);
         return true;
     }

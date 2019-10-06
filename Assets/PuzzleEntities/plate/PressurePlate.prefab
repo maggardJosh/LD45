@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5907732667000592560}
   - component: {fileID: 5907732667000592563}
   - component: {fileID: 5907732667000592562}
+  - component: {fileID: 3822316511728456404}
   m_Layer: 0
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -71,6 +72,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78779b5970979b74ebd02c9e36f45dc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3822316511728456404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5907732667000592557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b450de09bfecdb946b0eccb4d10464c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doorToOpen: {fileID: 0}
 --- !u!1 &5907732667360714528
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +177,7 @@ Animator:
   m_GameObject: {fileID: 5907732667360714528}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 142af2ee0e65d094ea1a23ada4acf2ef, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

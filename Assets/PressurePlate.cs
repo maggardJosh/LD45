@@ -17,12 +17,14 @@ public class PressurePlate : MonoBehaviour
     void Update()
     {
         var pressed = IsPressed();
-        if(pressed != _lastPressed)
+        if (pressed != _lastPressed)
+        {
             AudioManager.PlayOneShot(GameSettings.DoorOpenSFX);
-        _lastPressed = pressed;
-        _animator.SetBool("pressed", pressed);
-        foreach (var door in doorsToOpen)
-            door.GetComponentInChildren<Animator>().SetBool("open", pressed);
+            _lastPressed = pressed;
+            _animator.SetBool("pressed", pressed);
+            foreach (var door in doorsToOpen)
+                door.Open(pressed);
+        }
     }
 
     private bool IsPressed()

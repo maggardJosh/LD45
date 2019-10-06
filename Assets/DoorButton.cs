@@ -9,7 +9,7 @@ public class DoorButton : MonoBehaviour
         GetComponent<Interactable>().interactAction = (pc) =>
         {
             foreach (var doorToOpen in doorsToOpen)
-                doorToOpen.GetComponentInChildren<Animator>().SetBool("open", true);
+                doorToOpen.Open();
             AudioManager.PlayOneShot(GameSettings.DoorOpenSFX);
             return true;
         };

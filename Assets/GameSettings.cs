@@ -19,6 +19,10 @@ public class GameSettings : ScriptableObject
 
     [Header("Audio")]
     public AudioClip victorySFX;
+    public AudioClip jumpSFX;
+    public AudioClip pickupPartSFX;
+    public AudioClip discardPartSFX;
+    public AudioClip failSFX;
 
     private static GameSettings _instance;
     private static GameSettings Instance
@@ -45,5 +49,10 @@ public class GameSettings : ScriptableObject
     public static AnimationCurve LoadOutCurve { get => Instance.loadOutCurve; }
 
     public static AudioClip VictorySFX { get => Instance.victorySFX; }
+    public static AudioClip JumpSFX { get => Instance.jumpSFX; }
+    public static AudioClip PickupPartSFX { get => Instance.pickupPartSFX; }
+    public static AudioClip DiscardPartSFX { get => Instance.discardPartSFX; }
+    public static AudioClip FailSFX { get => Instance.failSFX; }
+
 
 }

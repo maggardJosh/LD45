@@ -32,6 +32,7 @@ public class BodyPickup : MonoBehaviour
         Settings.ApplyToPlayer(pc);
         pc.SetPositionToPickup(this);
         Destroy(gameObject);
+        AudioManager.PlayOneShot(GameSettings.PickupPartSFX);
         return true;
     }
 }

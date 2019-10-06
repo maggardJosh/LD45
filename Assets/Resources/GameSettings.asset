@@ -74,3 +74,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   victorySFX: {fileID: 8300000, guid: 1da437312ed6ed544af909b5d17b95ec, type: 3}
+  jumpSFX: {fileID: 8300000, guid: ccf8ad6fa41570640ad297caac63a316, type: 3}
+  pickupPartSFX: {fileID: 8300000, guid: af6bae83611fbee4b89a4fcb59a8c053, type: 3}
+  discardPartSFX: {fileID: 8300000, guid: ed4a669c596b279498a848dce1d6a189, type: 3}
+  failSFX: {fileID: 8300000, guid: f3447035b67e79e4fba267f533bb0f94, type: 3}

@@ -90,7 +90,11 @@ public class PlayerController : MonoBehaviour
     private void DiscardPowerup()
     {
         if (CurrentSetting.GetNumPowerups() <= 1)
+        {
+            FailureIndicator.ShowFailureMessage("No Body Part To Drop", transform.position);
             return;
+        }
+        AudioManager.PlayOneShot(GameSettings.DiscardPartSFX);
         int ind = 1;
         if (CurrentSetting.Head)
         {
@@ -188,7 +192,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (_entity._lastHitResult.hitDown && yValue > 0)
+            {
+                AudioManager.PlayOneShot(GameSettings.JumpSFX);
                 _entity.SetYVelocity(CurrentSetting.CharacterSettings.JumpStrength);
+            }
         }
     }
 }

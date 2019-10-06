@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
@@ -39,6 +37,8 @@ public class AudioManager : MonoBehaviour
 
     public static void PlayOneShot(AudioClip ac)
     {
+        if (!Instance.sfxAudioSource.isPlaying)
+            Instance.sfxAudioSource.pitch = Random.Range(.9f, 1.1f);
         Instance.sfxAudioSource.PlayOneShot(ac);
     }
 
@@ -47,5 +47,5 @@ public class AudioManager : MonoBehaviour
         MuteMusic = !MuteMusic;
         Instance.musicAudioSource.volume = MuteMusic ? 0 : 1;
     }
-    
+
 }

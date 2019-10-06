@@ -8,6 +8,7 @@ public class Gravestone : MonoBehaviour
     {
         GetComponent<Interactable>().interactAction = (pc) =>
         {
+            GameSettings.SetLevelCompleted(SceneManager.GetActiveScene().name);
             for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
             {
                 if (SceneManager.GetSceneByBuildIndex(i - 1) == SceneManager.GetActiveScene())

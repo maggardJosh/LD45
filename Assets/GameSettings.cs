@@ -65,4 +65,14 @@ public class GameSettings : ScriptableObject
     public static AudioClip ResetSFX { get => Instance.resetSFX; }
 
     public static float RandomSFXAmount { get => Instance.randomSFXAmount; }
+
+    public static bool LevelCompleted(string sceneName)
+    {
+        return PlayerPrefs.GetInt("levelcompleted_" + sceneName, 0) == 1;
+    }
+
+    public static void SetLevelCompleted(string sceneName)
+    {
+        PlayerPrefs.SetInt("levelcompleted_" + sceneName, 1);
+    }
 }

@@ -26,6 +26,7 @@ public class FailureIndicator : MonoBehaviour
     {
         Instance.GetComponentInChildren<Animator>().SetTrigger("StartFade");
         Instance.GetComponentInChildren<Text>().text = message;
+        position.x = Mathf.Clamp(position.x, 1, 19);
         ((RectTransform)Instance.transform).anchoredPosition = position + Vector3.up;
     }
 }

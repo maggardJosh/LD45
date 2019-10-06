@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle4.unity
     guid: 6becaa307d480d34c999ab44ec51868a
+  - enabled: 1
+    path: Assets/Scenes/Puzzle5.unity
+    guid: 969f32c02e66dd74ea920f7ab8ef511e
   m_configObjects: {}

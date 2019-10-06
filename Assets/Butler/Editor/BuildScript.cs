@@ -128,7 +128,7 @@ namespace Editor.ButlerScripts
         private static string[] GetScenes()
         {
             List<string> result = new List<string>();
-            for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
+            for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
             {
                 result.Add(SceneUtility.GetScenePathByBuildIndex(i));
             }

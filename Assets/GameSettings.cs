@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "GameSettings", menuName = "Custom/Game Setting")]
 public class GameSettings : ScriptableObject

@@ -744,7 +744,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 9, y: -116}
-  m_SizeDelta: {x: 450, y: 26.4}
+  m_SizeDelta: {x: 460, y: 26.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &409915103
 MonoBehaviour:
@@ -792,7 +792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Some parts let you jump higher
+  m_Text: Some body parts let you jump higher
 --- !u!222 &409915105
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8089,7 +8089,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6208583096366430523, guid: 3336a8b3a311dac40a96d2c9f1e63996,
+      objectReference: {fileID: 3518681323962315206, guid: 3336a8b3a311dac40a96d2c9f1e63996,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06b5287e2128e774f9ed4d1c6bd2ff2a, type: 3}
@@ -8313,7 +8313,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7219092343579241748, guid: 4aeb6dbd5fac21446ae56a69e443ce96,
+      objectReference: {fileID: -5262325983481045243, guid: 4aeb6dbd5fac21446ae56a69e443ce96,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02ca800a0f35a0342952861a257f3ed4, type: 3}

@@ -10,10 +10,11 @@ public class LevelSelectButton : MonoBehaviour
     public GameObject levelCompletedInd;
     public GameObject currentLevelInd;
 
-    private void Start()
+    public void WireUpSceneLoaded()
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
     }
+
     public void LoadLevel()
     {
         screen.gameObject.SetActive(false);

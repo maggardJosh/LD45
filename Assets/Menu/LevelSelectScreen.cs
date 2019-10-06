@@ -7,24 +7,21 @@ public class LevelSelectScreen : MonoBehaviour
     public Transform LevelSelectContainer;
     public GameObject LevelSelectButtonPrefab;
 
-    void Start()
+    void Awake()
     {
         gameObject.SetActive(false);
         UpdateLevels();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void UpdateLevels()
     {
+        foreach (Transform t in LevelSelectContainer)
+            Destroy(t.gameObject);//Just in case
         foreach (var scene in GetScenes())
         {
             var go = Instantiate(LevelSelectButtonPrefab, LevelSelectContainer);
             var lsb = go.GetComponent<LevelSelectButton>();
+            lsb.WireUpSceneLoaded();
             lsb.InitButton(scene, this);
         }
     }

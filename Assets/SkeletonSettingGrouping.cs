@@ -17,6 +17,17 @@ public class SkeletonSettingGrouping : ScriptableObject
         GetCombinedGroupWithPlayer(pc, lastSetting).ForceApplyToPlayer(pc);
     }
 
+    public SkeletonSettingGrouping GetOverlapGroupWithPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting = null)
+    {
+        lastSetting = lastSetting ?? pc.CurrentSetting;
+        bool overlapHead = Head && (lastSetting?.Head ?? false);
+        bool overlapTorso = Torso && (lastSetting?.Torso ?? false);
+        bool overlapLegs = Legs && (lastSetting?.Legs ?? false);
+        bool overlapWings = Wings && (lastSetting?.Wings ?? false);
+        var resultGroup = FindGroupingSetting(overlapHead, overlapTorso, overlapLegs, overlapWings);
+        return resultGroup;
+    }
+
     public SkeletonSettingGrouping GetCombinedGroupWithPlayer(PlayerController pc, SkeletonSettingGrouping lastSetting = null)
     {
         lastSetting = lastSetting ?? pc.CurrentSetting;

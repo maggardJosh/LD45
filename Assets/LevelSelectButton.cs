@@ -10,6 +10,7 @@ public class LevelSelectButton : MonoBehaviour
     public void LoadLevel()
     {
         screen.gameObject.SetActive(false);
+        AudioManager.PlayOneShot(GameSettings.ResetSFX);
         LoadingScreen.Show(() => SceneManager.LoadScene(sceneName));
     }
 

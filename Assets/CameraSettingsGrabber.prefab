@@ -410,7 +410,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d5ea686ef89d1614ba5bea6c026fd957, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.52
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -649,6 +649,7 @@ GameObject:
   - component: {fileID: 4489289100349924265}
   - component: {fileID: 1634749759015414498}
   - component: {fileID: 5592319566139237813}
+  - component: {fileID: 8034497404831292899}
   m_Layer: 0
   m_Name: Cancel Button
   m_TagString: Untagged
@@ -766,6 +767,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8034497404831292899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089922629658117330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c7dcfbc3d90074db1db668d709c8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5364502178083738832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1093,7 @@ GameObject:
   - component: {fileID: 7337046610756352351}
   - component: {fileID: 8207359903009770348}
   - component: {fileID: 2081333111861179634}
+  - component: {fileID: 1294162455678264318}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -1197,6 +1211,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1294162455678264318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6566896916459404533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c7dcfbc3d90074db1db668d709c8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7002988449564126865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1282,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1429,6 +1455,7 @@ GameObject:
   - component: {fileID: 1077291482662935120}
   - component: {fileID: 6193705544925882934}
   - component: {fileID: 3800014028258951037}
+  - component: {fileID: 351887316408735853}
   m_Layer: 0
   m_Name: MenuButton
   m_TagString: Untagged
@@ -1546,6 +1573,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+--- !u!114 &351887316408735853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220981610089988769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28c7dcfbc3d90074db1db668d709c8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7236845282807786579
 GameObject:
   m_ObjectHideFlags: 0

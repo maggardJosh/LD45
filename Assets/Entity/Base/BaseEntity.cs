@@ -64,12 +64,16 @@ public class BaseEntity : MonoBehaviour
     protected virtual void TryMove()
     {
         ForceOutOfWalls();
-
+        bool hitDownLastFrame = _lastHitResult.hitDown;
         _lastHitResult = GetMoveTester().GetMoveResult(transform.position, _velocity * Time.fixedDeltaTime);
         transform.position = _lastHitResult.newPos;
 
         if (_lastHitResult.hitDown)
+        {
             _velocity.y *= Settings.BounceValue;
+            if (!hitDownLastFrame)
+                AudioManager.PlayOneShot(GameSettings.HitGroundSFX);
+        }
 
         if (_lastHitResult.hitLeft || _lastHitResult.hitRight)
             _velocity.x *= Settings.BounceValue;

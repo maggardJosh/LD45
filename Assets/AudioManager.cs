@@ -32,20 +32,20 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         _instance = this;
-        musicAudioSource.volume = MuteMusic ? 0 : 1;
+        musicAudioSource.volume = MuteMusic ? 0 : .3f;
     }
 
     public static void PlayOneShot(AudioClip ac)
     {
         if (!Instance.sfxAudioSource.isPlaying)
-            Instance.sfxAudioSource.pitch = Random.Range(.9f, 1.1f);
+            Instance.sfxAudioSource.pitch = 1.0f + Random.Range(-GameSettings.RandomSFXAmount, GameSettings.RandomSFXAmount);
         Instance.sfxAudioSource.PlayOneShot(ac);
     }
 
     public void ToggleMusicSound()
     {
         MuteMusic = !MuteMusic;
-        Instance.musicAudioSource.volume = MuteMusic ? 0 : 1;
+        Instance.musicAudioSource.volume = MuteMusic ? 0 : .3f;
     }
 
 }

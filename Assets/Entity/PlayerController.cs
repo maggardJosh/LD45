@@ -50,7 +50,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            AudioManager.PlayOneShot(GameSettings.ResetSFX);
             LoadingScreen.Show(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        }
         CheckSetting();
         xInput = _inputProvider.GetXInput();
         yInput = _inputProvider.GetYInput();
@@ -60,6 +63,10 @@ public class PlayerController : MonoBehaviour
 
         if (_inputProvider.GetDiscardInput())
             TryDiscard();
+    }
+    public void PlayStepSound()
+    {
+        AudioManager.PlayOneShot(GameSettings.HitGroundSFX);
     }
 
     private void TryUse()

@@ -12,10 +12,14 @@ public class PressurePlate : MonoBehaviour
         _animator = GetComponentInChildren<Animator>();
     }
 
+    bool _lastPressed = false;
     // Update is called once per frame
     void Update()
     {
         var pressed = IsPressed();
+        if(pressed != _lastPressed)
+            AudioManager.PlayOneShot(GameSettings.DoorOpenSFX);
+        _lastPressed = pressed;
         _animator.SetBool("pressed", pressed);
         foreach (var door in doorsToOpen)
             door.GetComponentInChildren<Animator>().SetBool("open", pressed);

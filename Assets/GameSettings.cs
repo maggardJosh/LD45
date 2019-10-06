@@ -17,12 +17,18 @@ public class GameSettings : ScriptableObject
     public AnimationCurve loadInCurve;
     public AnimationCurve loadOutCurve;
 
+    public float randomSFXAmount = .1f;
+
     [Header("Audio")]
     public AudioClip victorySFX;
     public AudioClip jumpSFX;
     public AudioClip pickupPartSFX;
     public AudioClip discardPartSFX;
     public AudioClip failSFX;
+    public AudioClip doorOpenSFX;
+    public AudioClip hitGroundSFX;
+    public AudioClip menuBlipSFX;
+    public AudioClip resetSFX;
 
     private static GameSettings _instance;
     private static GameSettings Instance
@@ -53,6 +59,10 @@ public class GameSettings : ScriptableObject
     public static AudioClip PickupPartSFX { get => Instance.pickupPartSFX; }
     public static AudioClip DiscardPartSFX { get => Instance.discardPartSFX; }
     public static AudioClip FailSFX { get => Instance.failSFX; }
+    public static AudioClip DoorOpenSFX { get => Instance.doorOpenSFX; }
+    public static AudioClip HitGroundSFX { get => Instance.hitGroundSFX; }
+    public static AudioClip MenuBlipSFX { get => Instance.menuBlipSFX; }
+    public static AudioClip ResetSFX { get => Instance.resetSFX; }
 
-
+    public static float RandomSFXAmount { get => Instance.randomSFXAmount; }
 }

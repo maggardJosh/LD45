@@ -22,6 +22,8 @@ MonoBehaviour:
     type: 3}
   ghostSetting: {fileID: 11400000, guid: 9478ac0033514014e8c426736881be00, type: 2}
   bgColor: {r: 0.20392157, g: 0.31764707, b: 0.36862746, a: 0}
+  essentialsPrefab: {fileID: 1812611410441998289, guid: bc966186123ed734186f0b57f45f9546,
+    type: 3}
   loadSceneFadeTime: 0.5
   loadInCurve:
     serializedVersion: 2
@@ -71,3 +73,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  victorySFX: {fileID: 8300000, guid: 1da437312ed6ed544af909b5d17b95ec, type: 3}

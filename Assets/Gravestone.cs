@@ -13,17 +13,22 @@ public class Gravestone : MonoBehaviour
             {
                 if (SceneManager.GetSceneByBuildIndex(i - 1) == SceneManager.GetActiveScene())
                 {
-                    string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
-                    string sceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
-                    AudioManager.PlayOneShot(GameSettings.VictorySFX);
-                    LoadingScreen.Show(() => SceneManager.LoadScene(sceneName));
+                    LoadSceneByIndex(i);
                     return true;
                 }
 
             }
-            FailureIndicator.ShowFailureMessage("Out of levels... sorry!", transform.position);
-            return false;
+            LoadSceneByIndex(0);
+            return true;
         };
+    }
+
+    private static void LoadSceneByIndex(int i)
+    {
+        string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
+        string sceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
+        AudioManager.PlayOneShot(GameSettings.VictorySFX);
+        LoadingScreen.Show(() => SceneManager.LoadScene(sceneName));
     }
 
     // Update is called once per frame

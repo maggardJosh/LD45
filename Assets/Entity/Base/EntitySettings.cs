@@ -12,4 +12,6 @@ public class EntitySettings : ScriptableObject
     public float Friction = 1;
     public bool ObeysGravity = true;
     public LayerMask CollideMask;
+
+    public bool PlayGroundHitParticles = true;
 }

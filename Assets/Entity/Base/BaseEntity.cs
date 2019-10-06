@@ -16,12 +16,16 @@ public class BaseEntity : MonoBehaviour
     public MoveResult _lastHitResult { get; private set; } = new MoveResult();
     private Vector3 _velocity = Vector3.zero;
     private BoxCollider2D _bCollider;
+    private ParticleSystem groundHitParticleSystem;
 
     private Animator _animController;
     private void Start()
     {
         _bCollider = GetComponent<BoxCollider2D>();
         _animController = GetComponent<Animator>();
+
+        var particleObject = Instantiate(GameSettings.GroundHitParticlePrefab, transform);
+        groundHitParticleSystem = particleObject.GetComponent<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -74,7 +78,11 @@ public class BaseEntity : MonoBehaviour
         {
             _velocity.y *= Settings.BounceValue;
             if (!hitDownLastFrame)
+            {
                 AudioManager.PlayOneShot(GameSettings.HitGroundSFX);
+                if (Settings.PlayGroundHitParticles && groundHitParticleSystem)
+                    groundHitParticleSystem.Play();
+            }
         }
 
         if (_lastHitResult.hitLeft || _lastHitResult.hitRight)

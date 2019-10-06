@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     public IInputProvider _inputProvider;
     private BoxCollider2D _boxCollider;
 
+    public ParticleSystem walkParticleSystem;
+    public ParticleSystem jumpParticleSystem;
+
     private void Start()
     {
         _boxCollider = GetComponent<BoxCollider2D>();
@@ -66,7 +69,11 @@ public class PlayerController : MonoBehaviour
     }
     public void PlayStepSound()
     {
+        if (!_entity._lastHitResult.hitDown)
+            return;
         AudioManager.PlayOneShot(GameSettings.HitGroundSFX);
+        if (walkParticleSystem)
+            walkParticleSystem.Play();
     }
 
     private void TryUse()
@@ -201,6 +208,12 @@ public class PlayerController : MonoBehaviour
             if (_entity._lastLastHitResult.hitDown && yValue > 0)
             {
                 AudioManager.PlayOneShot(GameSettings.JumpSFX);
+                if (jumpParticleSystem)
+                {
+                    jumpParticleSystem.transform.SetParent(transform.parent);
+                    jumpParticleSystem.transform.position = transform.position;
+                    jumpParticleSystem.Play();
+                }
                 _entity.SetYVelocity(CurrentSetting.CharacterSettings.JumpStrength);
             }
         }

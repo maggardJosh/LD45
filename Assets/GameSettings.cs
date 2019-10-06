@@ -19,6 +19,8 @@ public class GameSettings : ScriptableObject
 
     public float randomSFXAmount = .1f;
 
+    public GameObject groundHitParticlePrefab;
+
     [Header("Audio")]
     public AudioClip victorySFX;
     public AudioClip jumpSFX;
@@ -63,6 +65,8 @@ public class GameSettings : ScriptableObject
     public static AudioClip HitGroundSFX { get => Instance.hitGroundSFX; }
     public static AudioClip MenuBlipSFX { get => Instance.menuBlipSFX; }
     public static AudioClip ResetSFX { get => Instance.resetSFX; }
+
+    public static GameObject GroundHitParticlePrefab { get => Instance.groundHitParticlePrefab; }
 
     public static float RandomSFXAmount { get => Instance.randomSFXAmount; }
 

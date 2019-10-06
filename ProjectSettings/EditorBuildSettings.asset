@@ -30,8 +30,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial8.unity
     guid: eafbd9b82c4c65e4b884573a7ef52204
   - enabled: 1
-    path: Assets/Scenes/Puzzle1.unity
+    path: Assets/Scenes/Tutorial9.unity
     guid: 7aee7e0807eb1f04d89a806d297d399f
+  - enabled: 1
+    path: Assets/Scenes/Puzzle1.unity
+    guid: 80c09100db776b0479a68174ebd324ba
+  - enabled: 1
+    path: Assets/Scenes/Puzzle2.unity
+    guid: 005785303165147468708ecfc4502e0e
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729

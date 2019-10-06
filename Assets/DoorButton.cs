@@ -2,13 +2,14 @@
 
 public class DoorButton : MonoBehaviour
 {
-    public Door doorToOpen;
+    public Door[] doorsToOpen;
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<Interactable>().interactAction = (pc) =>
         {
-            doorToOpen.GetComponentInChildren<Animator>().SetBool("open", true);
+            foreach (var doorToOpen in doorsToOpen)
+                doorToOpen.GetComponentInChildren<Animator>().SetBool("open", true);
             return true;
         };
     }

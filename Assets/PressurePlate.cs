@@ -4,7 +4,7 @@ public class PressurePlate : MonoBehaviour
 {
     private BoxCollider2D _boxCollider;
     private Animator _animator;
-    public Door doorToOpen;
+    public Door[] doorsToOpen;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,8 @@ public class PressurePlate : MonoBehaviour
     {
         var pressed = IsPressed();
         _animator.SetBool("pressed", pressed);
-        doorToOpen.GetComponentInChildren<Animator>().SetBool("open", pressed);
+        foreach (var door in doorsToOpen)
+            door.GetComponentInChildren<Animator>().SetBool("open", pressed);
     }
 
     private bool IsPressed()

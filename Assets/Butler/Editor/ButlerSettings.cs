@@ -24,7 +24,6 @@ namespace Editor.ButlerScripts
 
         public string GameName = "square-slide";
         public string UserName = "maggardJosh";
-        public string[] Scenes;
         public bool BuildAndroid = false;
         public bool BuildWeb = false;
         public bool BuildPC = false;

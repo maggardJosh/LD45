@@ -110,6 +110,15 @@ TextureImporter:
   - first:
       213: 361865038524173698
     second: tilemap_31
+  - first:
+      213: -4326689981271417894
+    second: plate_up
+  - first:
+      213: 1782080342235219337
+    second: legs
+  - first:
+      213: 6902126574865889456
+    second: plate_down
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -800,12 +809,12 @@ TextureImporter:
       name: button
       rect:
         serializedVersion: 2
-        x: 23
-        y: 275
-        width: 4
-        height: 8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 37
+        y: 241
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -931,7 +940,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -952,7 +961,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -973,7 +982,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -981,6 +990,69 @@ TextureImporter:
       bones: []
       spriteID: 2e70dd25a7995314e85baed1f9a44f13
       internalID: 361865038524173698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate_up
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 241
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17c4b7b272b7594d8799de473c473ff
+      internalID: -4326689981271417894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: legs
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 241
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d674ddbabe2c2c9479e123509c3637e1
+      internalID: 1782080342235219337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: plate_down
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 241
+        width: 16
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046447616ffbc874eb8dc5e9976c0677
+      internalID: 6902126574865889456
       vertices: []
       indices: 
       edges: []

@@ -1,0 +1,31 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class FailureIndicator : MonoBehaviour
+{
+
+    private static FailureIndicator _instance;
+    public static FailureIndicator Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<FailureIndicator>();
+            return _instance;
+        }
+    }
+
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    public static void ShowFailureMessage(string message, Vector3 position)
+    {
+        Instance.GetComponentInChildren<Animator>().SetTrigger("StartFade");
+        Instance.GetComponentInChildren<Text>().text = message;
+        ((RectTransform)Instance.transform).anchoredPosition = position + Vector3.up;
+    }
+}

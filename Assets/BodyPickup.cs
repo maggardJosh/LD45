@@ -25,7 +25,10 @@ public class BodyPickup : MonoBehaviour
     public bool UsePickup(PlayerController pc)
     {
         if (pc.WillColliderHeightCollide(transform.position, Settings.GetCombinedGroupWithPlayer(pc).CharacterSettings.ColliderHeight))
+        {
+            FailureIndicator.ShowFailureMessage("Not Enough Room", transform.position);
             return false;
+        }
         Settings.ApplyToPlayer(pc);
         pc.SetPositionToPickup(this);
         Destroy(gameObject);

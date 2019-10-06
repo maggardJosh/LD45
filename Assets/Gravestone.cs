@@ -14,6 +14,7 @@ public class Gravestone : MonoBehaviour
                 {
                     string pathToScene = SceneUtility.GetScenePathByBuildIndex(i);
                     string sceneName = System.IO.Path.GetFileNameWithoutExtension(pathToScene);
+                    AudioManager.PlayOneShot(GameSettings.VictorySFX);
                     LoadingScreen.Show(() => SceneManager.LoadScene(sceneName));
                     return true;
                 }

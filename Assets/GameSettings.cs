@@ -11,10 +11,14 @@ public class GameSettings : ScriptableObject
     public GameObject interactIndicatorPrefab;
     public SkeletonSettingGrouping ghostSetting;
     public Color bgColor;
+    public GameObject essentialsPrefab;
 
     public float loadSceneFadeTime = 1f;
     public AnimationCurve loadInCurve;
     public AnimationCurve loadOutCurve;
+
+    [Header("Audio")]
+    public AudioClip victorySFX;
 
     private static GameSettings _instance;
     private static GameSettings Instance
@@ -34,9 +38,12 @@ public class GameSettings : ScriptableObject
     public static GameObject InteractIndicatorPrefab { get => Instance.interactIndicatorPrefab; }
     public static SkeletonSettingGrouping GhostSetting { get => Instance.ghostSetting; }
     public static Color BGColor { get => Instance.bgColor; }
+    public static GameObject EssentialsPrefab { get => Instance.essentialsPrefab; }
 
     public static float LoadSceneFadeTime { get => Instance.loadSceneFadeTime; }
     public static AnimationCurve LoadInCurve { get => Instance.loadInCurve; }
     public static AnimationCurve LoadOutCurve { get => Instance.loadOutCurve; }
+
+    public static AudioClip VictorySFX { get => Instance.victorySFX; }
 
 }

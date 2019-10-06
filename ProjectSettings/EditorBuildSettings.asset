@@ -6,45 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Tutorial1.unity
+    path: Assets/Scenes/T-1.unity
     guid: d90c548b65188da42bf41a9cf48f0faa
   - enabled: 1
-    path: Assets/Scenes/Tutorial2.unity
+    path: Assets/Scenes/T-2.unity
     guid: d5c12efe8c4cc714b9c28179b17d595d
   - enabled: 1
-    path: Assets/Scenes/Tutorial3.unity
+    path: Assets/Scenes/T-3.unity
     guid: 2fc60c5c5aa2ffb4bb5cc34cf78870fb
   - enabled: 1
-    path: Assets/Scenes/Tutorial4.unity
+    path: Assets/Scenes/T-4.unity
     guid: 8c41b70ce4783cd4cb804826dbcf89e2
   - enabled: 1
-    path: Assets/Scenes/Tutorial5.unity
+    path: Assets/Scenes/T-5.unity
     guid: d66801caf1eef6e43a005f07b38e18a9
   - enabled: 1
-    path: Assets/Scenes/Tutorial6.unity
+    path: Assets/Scenes/T-6.unity
     guid: d46feece82612844bb60d97166249306
   - enabled: 1
-    path: Assets/Scenes/Tutorial7.unity
+    path: Assets/Scenes/T-7.unity
     guid: 943528a1add9e1847addd7a50fff01fe
   - enabled: 1
-    path: Assets/Scenes/Tutorial8.unity
+    path: Assets/Scenes/T-8.unity
     guid: eafbd9b82c4c65e4b884573a7ef52204
   - enabled: 1
-    path: Assets/Scenes/Tutorial9.unity
+    path: Assets/Scenes/T-9.unity
     guid: 7aee7e0807eb1f04d89a806d297d399f
   - enabled: 1
-    path: Assets/Scenes/Puzzle1.unity
+    path: Assets/Scenes/P-1.unity
     guid: 80c09100db776b0479a68174ebd324ba
   - enabled: 1
-    path: Assets/Scenes/Puzzle2.unity
+    path: Assets/Scenes/P-2.unity
     guid: 005785303165147468708ecfc4502e0e
   - enabled: 1
-    path: Assets/Scenes/Puzzle3.unity
+    path: Assets/Scenes/P-3.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Puzzle4.unity
+    path: Assets/Scenes/P-4.unity
     guid: 6becaa307d480d34c999ab44ec51868a
   - enabled: 1
-    path: Assets/Scenes/Puzzle5.unity
+    path: Assets/Scenes/P-5.unity
     guid: 969f32c02e66dd74ea920f7ab8ef511e
   m_configObjects: {}

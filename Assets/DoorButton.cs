@@ -10,6 +10,7 @@ public class DoorButton : MonoBehaviour
         {
             foreach (var doorToOpen in doorsToOpen)
                 doorToOpen.GetComponentInChildren<Animator>().SetBool("open", true);
+            AudioManager.PlayOneShot(GameSettings.DoorOpenSFX);
             return true;
         };
     }

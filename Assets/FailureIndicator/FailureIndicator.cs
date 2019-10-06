@@ -24,6 +24,7 @@ public class FailureIndicator : MonoBehaviour
 
     public static void ShowFailureMessage(string message, Vector3 position)
     {
+        AudioManager.PlayOneShot(GameSettings.FailSFX);
         Instance.GetComponentInChildren<Animator>().SetTrigger("StartFade");
         Instance.GetComponentInChildren<Text>().text = message;
         position.x = Mathf.Clamp(position.x, 1, 19);

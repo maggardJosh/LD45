@@ -73,4 +73,12 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  randomSFXAmount: 0.1
   victorySFX: {fileID: 8300000, guid: 1da437312ed6ed544af909b5d17b95ec, type: 3}
+  jumpSFX: {fileID: 8300000, guid: ccf8ad6fa41570640ad297caac63a316, type: 3}
+  pickupPartSFX: {fileID: 8300000, guid: af6bae83611fbee4b89a4fcb59a8c053, type: 3}
+  discardPartSFX: {fileID: 8300000, guid: ed4a669c596b279498a848dce1d6a189, type: 3}
+  failSFX: {fileID: 8300000, guid: f3447035b67e79e4fba267f533bb0f94, type: 3}
+  doorOpenSFX: {fileID: 8300000, guid: d3270b18318eaef4abca019c7ae1fd17, type: 3}
+  hitGroundSFX: {fileID: 8300000, guid: 20e97d7ff137f50459f53b939e829820, type: 3}
+  menuBlipSFX: {fileID: 8300000, guid: f9566d0218fa3ce4dbb4f9acd9c13eea, type: 3}

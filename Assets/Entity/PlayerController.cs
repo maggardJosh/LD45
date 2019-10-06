@@ -50,7 +50,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            AudioManager.PlayOneShot(GameSettings.ResetSFX);
             LoadingScreen.Show(() => SceneManager.LoadScene(SceneManager.GetActiveScene().name));
+        }
         CheckSetting();
         xInput = _inputProvider.GetXInput();
         yInput = _inputProvider.GetYInput();
@@ -60,6 +63,10 @@ public class PlayerController : MonoBehaviour
 
         if (_inputProvider.GetDiscardInput())
             TryDiscard();
+    }
+    public void PlayStepSound()
+    {
+        AudioManager.PlayOneShot(GameSettings.HitGroundSFX);
     }
 
     private void TryUse()
@@ -90,7 +97,11 @@ public class PlayerController : MonoBehaviour
     private void DiscardPowerup()
     {
         if (CurrentSetting.GetNumPowerups() <= 1)
+        {
+            FailureIndicator.ShowFailureMessage("No Body Part To Drop", transform.position);
             return;
+        }
+        AudioManager.PlayOneShot(GameSettings.DiscardPartSFX);
         int ind = 1;
         if (CurrentSetting.Head)
         {
@@ -188,7 +199,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             if (_entity._lastHitResult.hitDown && yValue > 0)
+            {
+                AudioManager.PlayOneShot(GameSettings.JumpSFX);
                 _entity.SetYVelocity(CurrentSetting.CharacterSettings.JumpStrength);
+            }
         }
     }
 }

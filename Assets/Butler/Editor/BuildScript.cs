@@ -121,7 +121,7 @@ namespace Editor.ButlerScripts
             });
             if (result.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 return false;
-            WebPush();
+            
             return true;
         }
 
@@ -153,7 +153,7 @@ namespace Editor.ButlerScripts
             });
             if (result.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 return false;
-            WindowsPush();
+            
             return true;
         }
 
@@ -175,7 +175,7 @@ namespace Editor.ButlerScripts
             });
             if (result.summary.result != UnityEditor.Build.Reporting.BuildResult.Succeeded)
                 return false;
-            AndroidPush();
+            
             return true;
         }
 
